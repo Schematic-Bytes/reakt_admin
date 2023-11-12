@@ -13,7 +13,7 @@ class OtpRoute extends StatelessWidget {
           margin: const EdgeInsets.all(20),
           child: Column(
             children: [
-              const SizedBox(height: 20),
+              const SizedBox(height: 30),
               Image.asset(
                 "assets/images/logo.png",
                 width: 80,
@@ -39,7 +39,7 @@ class OtpRoute extends StatelessWidget {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "Otp",
+                  "One time password",
                   style: GoogleFonts.inter(
                     fontSize: 16,
                     fontWeight: FontWeight.w500,

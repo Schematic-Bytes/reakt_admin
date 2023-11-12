@@ -21,7 +21,7 @@ class _LoginRouteState extends State<LoginRoute> {
           margin: const EdgeInsets.all(20),
           child: Column(
             children: [
-              const SizedBox(height: 20),
+              const SizedBox(height: 30),
               Image.asset(
                 "assets/images/logo.png",
                 width: 80,
@@ -64,39 +64,6 @@ class _LoginRouteState extends State<LoginRoute> {
                   fillColor: const Color.fromRGBO(179, 179, 179, 0.1),
                   filled: true,
                   hintText: "+91 XXX XXXXXXX",
-                ),
-              ),
-              const SizedBox(height: 20),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Password",
-                  style: GoogleFonts.inter(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                    color: const Color(0xFF06080A),
-                  ),
-                ),
-              ),
-              TextField(
-                obscureText: !visibility,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                    borderSide: BorderSide.none,
-                  ),
-                  fillColor: const Color.fromRGBO(179, 179, 179, 0.1),
-                  filled: true,
-                  suffixIcon: IconButton(
-                    icon: visibility
-                        ? const Icon(Icons.visibility_outlined)
-                        : const Icon(Icons.visibility_off_outlined),
-                    onPressed: () {
-                      setState(() {
-                        visibility = !visibility;
-                      });
-                    },
-                  ),
                 ),
               ),
               const Spacer(),
