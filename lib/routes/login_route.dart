@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:reakt_admin/routes/otp_route.dart';
 
 class LoginRoute extends StatefulWidget {
   const LoginRoute({super.key});
@@ -91,11 +91,11 @@ class _LoginRouteState extends State<LoginRoute> {
                   onTap: () {
                     if (_controller.text == "") {
                       // TODO: add toast window;
-                    } else {}
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const OtpRoute()),
-                    );
+                    } else {
+                      print("THIS");
+                      print(_controller.text);
+                      context.go("/login/verification?phone_number=${_controller.text}");
+                    }
                   },
                 )
               ],

@@ -1,14 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class AuthenticationService {
-  final FirebaseAuth _firebaseAuth;
-  AuthenticationService(this._firebaseAuth);
+  final FirebaseAuth firebaseAuth;
+  AuthenticationService(this.firebaseAuth);
 
-  Stream<User?> get stateChanges => _firebaseAuth.userChanges();
+  Stream<User?> get stateChanges => firebaseAuth.userChanges();
 
-  User? get currentUser => _firebaseAuth.currentUser;
+  User? get currentUser => firebaseAuth.currentUser;
 
   // Future<String> signUp({required String phoneNumber}) async {
   //   try {
@@ -33,43 +31,20 @@ class AuthenticationService {
 
   Future<String> signOut() async {
     try {
-      await _firebaseAuth.signOut();
+      await firebaseAuth.signOut();
       return 'proceed';
     } on FirebaseAuthException catch (e) {
       return e.message ?? 'something went wrong';
     }
   }
 
-  Future<String> signInWithPhoneNumber(String phoneNumber, BuildContext context) async {
-    FirebaseAuth auth = FirebaseAuth.instance;
-    final router = context.go("/");
-    try {
-      await auth.verifyPhoneNumber(
-        phoneNumber: phoneNumber,
-        verificationCompleted: (PhoneAuthCredential credential) async {
-          await auth.signInWithCredential(credential);
-          return context.go("/"); // Redirect to the dashboard after successful verification
-        },
-        verificationFailed: (FirebaseAuthException e) {
-          print("something went wrong $e");
-          return context.go("/");
-        },
-        codeSent: (String verificationId, int? resendToken) {
-          // Save the verification ID and resend token for later use
-          // e.g., when the user enters the OTP
-          // You can use a state management solution like Provider to store these value
-          return context.go("/otp_verification", extra: {"verificationId": verificationId, "resendToken": resendToken});
-        },
-        codeAutoRetrievalTimeout: (String verificationId) {
-          // Handle the auto-retrieval timeout
-          // You can use a state management solution like Provider to store the verification I
+  // Future<String> signInWithPhoneNumber(String phoneNumber, BuildContext context) async {
+  //   FirebaseAuth auth = FirebaseAuth.instance;
+  //   final router = context.go("/");
+  //   try {
 
-          return context.go("/otp_verification");
-        },
-      );
-      return "";
-    } catch (e) {
-      return e.toString();
-    }
-  }
+  //     return "";
+  //   } catch (e) {
+  //     return e.toString();
+  //   }
 }
