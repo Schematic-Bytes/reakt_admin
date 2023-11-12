@@ -107,19 +107,20 @@ https://github.com/Schematic-Bytes/reakt_mobile
 
 ## 5. Usage <a name="usage"></a>
 
-1. There are two apps one for the admin and the other one for user's.
+-  There are two apps one for the admin and the other one for user's.
+	- Visite the mobile app [github repo]([url](https://github.com/Schematic-Bytes/reakt_mobile))
 
 2. Admin's are required to sign-up
 
 3. From there they can see all SOS  signals and also respond to them, view the signal origin and so on. 
 
-4. User's need to click on  the "Emergency" button for sending their SOS signal.
+4. Maps present to navigate to the SOS response site.
 
-5. The user's can also add their personal details and medical records.
+5. Hear the user's audio messages.
 
 
 ## 6. License <a name="license"></a>
 
-This project is licensed under the [AGPL License](LICENSE).
+This project is licensed under the [MIT License](LICENSE).
 
 ---
