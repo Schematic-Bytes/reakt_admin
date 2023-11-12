@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:reakt_admin/routes/home.dart';
+import 'package:reakt_admin/routes/home_route.dart';
 
-class Otp extends StatelessWidget {
-  const Otp({super.key});
+class OtpRoute extends StatelessWidget {
+  const OtpRoute({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +89,7 @@ class Otp extends StatelessWidget {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const Home()),
+                    MaterialPageRoute(builder: (context) => const HomeRoute()),
                   );
                 },
               )

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:reakt_admin/routes/home_route.dart';
+import 'package:reakt_admin/routes/otp_route.dart';
 
 class LoginRoute extends StatefulWidget {
   const LoginRoute({super.key});
@@ -87,8 +88,9 @@ class _LoginRouteState extends State<LoginRoute> {
                   fillColor: const Color.fromRGBO(179, 179, 179, 0.1),
                   filled: true,
                   suffixIcon: IconButton(
-                    icon:
-                        visibility ? const Icon(Icons.visibility_outlined) : const Icon(Icons.visibility_off_outlined),
+                    icon: visibility
+                        ? const Icon(Icons.visibility_outlined)
+                        : const Icon(Icons.visibility_off_outlined),
                     onPressed: () {
                       setState(() {
                         visibility = !visibility;
@@ -120,7 +122,7 @@ class _LoginRouteState extends State<LoginRoute> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const HomeRoute()),
+                    MaterialPageRoute(builder: (context) => const OtpRoute()),
                   );
                 },
               )
