@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:reakt_admin/routes/home_route.dart';
 import 'package:reakt_admin/routes/otp_route.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class LoginRoute extends StatefulWidget {
   const LoginRoute({super.key});
@@ -15,9 +15,10 @@ class _LoginRouteState extends State<LoginRoute> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Center(
+    TextEditingController controller = TextEditingController();
+    return Scaffold(
+      body: SafeArea(
+        child: Center(
           child: Container(
             margin: const EdgeInsets.all(20),
             child: Column(
@@ -57,6 +58,7 @@ class _LoginRouteState extends State<LoginRoute> {
                   ),
                 ),
                 TextField(
+                  controller: controller,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20),
@@ -88,9 +90,19 @@ class _LoginRouteState extends State<LoginRoute> {
                     ),
                   ),
                   onTap: () {
+                    if (controller.text == "") {
+                      Fluttertoast.showToast(
+                          msg: "Enter password", gravity: ToastGravity.BOTTOM);
+                    } else {
+                      Fluttertoast.showToast(
+                          msg: "Password is too short",
+                          gravity: ToastGravity.BOTTOM);
+                    }
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const OtpRoute()),
+                      MaterialPageRoute(
+                        builder: (context) => const OtpRoute(),
+                      ),
                     );
                   },
                 )
