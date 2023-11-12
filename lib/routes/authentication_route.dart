@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:polytec/services/service.dart';
 import 'package:provider/provider.dart';
+import 'package:reakt_admin/services/authentication.dart';
 
 class AuthRouter extends StatelessWidget {
-  const AuthRouter({super.key});
+  const AuthRouter({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,11 +12,12 @@ class AuthRouter extends StatelessWidget {
   }
 
   static String redirect(BuildContext context, GoRouterState state) {
-    final services = context.read<Services>();
+    final auth = context.read<AuthenticationService>();
 
-    if (services.userService.isLoggedIn()) {
+    if (auth.currentUser != null) {
       return "/dashboard";
+    } else {
+      return "/login";
     }
-    return "/login";
   }
 }

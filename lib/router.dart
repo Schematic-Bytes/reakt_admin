@@ -1,8 +1,7 @@
 import 'package:go_router/go_router.dart';
-import 'package:polytec/routes/authetication.dart';
-import 'package:polytec/routes/home_route.dart';
-import 'package:polytec/routes/login_route.dart';
-import 'package:polytec/routes/verification_route.dart';
+import 'package:reakt_admin/routes/authentication_route.dart';
+import 'package:reakt_admin/routes/home_route.dart';
+import 'package:reakt_admin/routes/login_route.dart';
 
 final appRouter = GoRouter(
   routes: [
@@ -13,18 +12,18 @@ final appRouter = GoRouter(
     ),
     GoRoute(
       path: '/login',
-      builder: (context, state) => const LoginPage(),
+      builder: (context, state) => const LoginRoute(),
       routes: <RouteBase>[
-        GoRoute(
-          path: 'verification',
-          builder: (context, state) => const Verification(),
-          redirect: Verification.redirect,
-        )
+        // GoRoute(
+        //   path: 'verification',
+        //   builder: (context, state) => const Verification(),
+        //   redirect: Verification.redirect,
+        // )
       ],
     ),
     GoRoute(
       path: '/dashboard',
-      builder: (context, state) => const HomePage(),
+      builder: (context, state) => const HomeRoute(),
     )
   ],
 );

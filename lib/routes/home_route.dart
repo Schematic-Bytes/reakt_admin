@@ -1,10 +1,9 @@
-import 'package:reakt_admin/routes/widget/alert_message.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:reakt_admin/routes/widget/alert_message.dart';
 
-class Home extends StatelessWidget {
-  const Home({super.key});
+class HomeRoute extends StatelessWidget {
+  const HomeRoute({super.key});
 
   @override
   Widget build(BuildContext context) {

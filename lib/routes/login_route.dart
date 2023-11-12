@@ -1,15 +1,15 @@
-import 'package:reakt_admin/routes/home.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:reakt_admin/routes/home_route.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+class LoginRoute extends StatefulWidget {
+  const LoginRoute({super.key});
 
   @override
-  State<Login> createState() => _LoginState();
+  State<LoginRoute> createState() => _LoginRouteState();
 }
 
-class _LoginState extends State<Login> {
+class _LoginRouteState extends State<LoginRoute> {
   bool visibility = false;
 
   @override
@@ -87,9 +87,8 @@ class _LoginState extends State<Login> {
                   fillColor: const Color.fromRGBO(179, 179, 179, 0.1),
                   filled: true,
                   suffixIcon: IconButton(
-                    icon: visibility
-                        ? const Icon(Icons.visibility_outlined)
-                        : const Icon(Icons.visibility_off_outlined),
+                    icon:
+                        visibility ? const Icon(Icons.visibility_outlined) : const Icon(Icons.visibility_off_outlined),
                     onPressed: () {
                       setState(() {
                         visibility = !visibility;
@@ -121,7 +120,7 @@ class _LoginState extends State<Login> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const Home()),
+                    MaterialPageRoute(builder: (context) => const HomeRoute()),
                   );
                 },
               )
