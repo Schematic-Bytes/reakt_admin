@@ -9,7 +9,7 @@
   </a> -->
   <h3>
     <b>
-	  Reakt
+	  Reakt Admin
     </b>
   </h3>
   <b>
