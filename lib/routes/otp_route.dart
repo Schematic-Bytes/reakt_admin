@@ -1,17 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:reakt_admin/routes/home_route.dart';
-import 'package:reakt_admin/routes/otp_route.dart';
 
-class LoginRoute extends StatefulWidget {
-  const LoginRoute({super.key});
-
-  @override
-  State<LoginRoute> createState() => _LoginRouteState();
-}
-
-class _LoginRouteState extends State<LoginRoute> {
-  bool visibility = false;
+class OtpRoute extends StatelessWidget {
+  const OtpRoute({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +39,7 @@ class _LoginRouteState extends State<LoginRoute> {
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
-                  "Phone",
+                  "Otp",
                   style: GoogleFonts.inter(
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
@@ -56,47 +48,22 @@ class _LoginRouteState extends State<LoginRoute> {
                 ),
               ),
               TextField(
+                style: const TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 20.0),
+                textAlign: TextAlign.center,
+                keyboardType: TextInputType.number,
+                maxLength: 6,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20),
                     borderSide: BorderSide.none,
                   ),
+                  counterText: "",
                   fillColor: const Color.fromRGBO(179, 179, 179, 0.1),
                   filled: true,
-                  hintText: "+91 XXX XXXXXXX",
-                ),
-              ),
-              const SizedBox(height: 20),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Password",
-                  style: GoogleFonts.inter(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                    color: const Color(0xFF06080A),
-                  ),
-                ),
-              ),
-              TextField(
-                obscureText: !visibility,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                    borderSide: BorderSide.none,
-                  ),
-                  fillColor: const Color.fromRGBO(179, 179, 179, 0.1),
-                  filled: true,
-                  suffixIcon: IconButton(
-                    icon: visibility
-                        ? const Icon(Icons.visibility_outlined)
-                        : const Icon(Icons.visibility_off_outlined),
-                    onPressed: () {
-                      setState(() {
-                        visibility = !visibility;
-                      });
-                    },
-                  ),
+                  // hintText: "",
                 ),
               ),
               const Spacer(),
@@ -122,7 +89,7 @@ class _LoginRouteState extends State<LoginRoute> {
                 onTap: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const OtpRoute()),
+                    MaterialPageRoute(builder: (context) => const HomeRoute()),
                   );
                 },
               )
