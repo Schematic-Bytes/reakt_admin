@@ -14,7 +14,7 @@ class _LoginRouteState extends State<LoginRoute> {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController _controller = TextEditingController();
+    TextEditingController controller = TextEditingController();
     return Scaffold(
       body: SafeArea(
         child: Center(
@@ -57,7 +57,7 @@ class _LoginRouteState extends State<LoginRoute> {
                   ),
                 ),
                 TextField(
-                  controller: _controller,
+                  controller: controller,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20),
@@ -89,13 +89,12 @@ class _LoginRouteState extends State<LoginRoute> {
                     ),
                   ),
                   onTap: () {
-                    if (_controller.text == "") {
-                      // TODO: add toast window;
+                    if (controller.text == "") {
+                      Fluttertoast.showToast(msg: "Enter password", gravity: ToastGravity.BOTTOM);
                     } else {
-                      print("THIS");
-                      print(_controller.text);
-                      context.go("/login/verification?phone_number=${_controller.text}");
+                      Fluttertoast.showToast(msg: "Password is too short", gravity: ToastGravity.BOTTOM);
                     }
+                    context.go("/login/verification?phone_number=${controller.text}");
                   },
                 )
               ],

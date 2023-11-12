@@ -7,39 +7,41 @@ class HomeRoute extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: ListView(
-          children: [
-            Container(
-              margin: const EdgeInsets.all(20),
-              child: Column(
-                children: [
-                  const SizedBox(height: 20),
-                  Text(
-                    "Reakt",
-                    style: GoogleFonts.inter(
-                      fontSize: 32,
-                      fontWeight: FontWeight.w700,
+    return SafeArea(
+      child: Scaffold(
+        body: Center(
+          child: ListView(
+            children: [
+              Container(
+                margin: const EdgeInsets.all(20),
+                child: Column(
+                  children: [
+                    const SizedBox(height: 20),
+                    Text(
+                      "Reakt",
+                      style: GoogleFonts.inter(
+                        fontSize: 32,
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
-                  ),
-                  Text(
-                    "Emergency alerts",
-                    style: GoogleFonts.inter(
-                      fontSize: 13,
-                      fontWeight: FontWeight.w400,
-                      color: const Color(0xFF06080A),
+                    Text(
+                      "Emergency alerts",
+                      style: GoogleFonts.inter(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w400,
+                        color: const Color(0xFF06080A),
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: 20),
-                  const AlertMessage(),
-                  const AlertMessage(),
-                  const AlertMessage(),
-                  const AlertMessage(),
-                ],
+                    const SizedBox(height: 20),
+                    const AlertMessage(),
+                    const AlertMessage(),
+                    const AlertMessage(),
+                    const AlertMessage(),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
