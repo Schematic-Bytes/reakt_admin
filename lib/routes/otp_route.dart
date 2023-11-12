@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:reakt_admin/routes/home_route.dart';
 import 'package:reakt_admin/services/authentication.dart';
 
 class OtpRoute extends StatelessWidget {
@@ -127,8 +126,8 @@ class OtpRoute extends StatelessWidget {
                         ),
                       ),
                       onTap: () {
-                        if (verificationId != null){
-                          auth.firebaseAuth.signInWithPhoneNumber(phoneNumber)
+                        if (verificationId != null) {
+                          auth.firebaseAuth.signInWithPhoneNumber(phoneNumber);
                         }
                       },
                     )
