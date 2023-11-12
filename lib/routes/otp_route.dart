@@ -22,6 +22,7 @@ class OtpRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final auth = context.read<AuthenticationService>();
+    final controller = TextEditingController();
     print("demn $phoneNumber");
     return Scaffold(
       body: Center(
@@ -90,6 +91,7 @@ class OtpRoute extends StatelessWidget {
                       ),
                     ),
                     TextField(
+                      controller: controller,
                       style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold, letterSpacing: 20.0),
                       textAlign: TextAlign.center,
                       keyboardType: TextInputType.number,
@@ -125,9 +127,12 @@ class OtpRoute extends StatelessWidget {
                           ),
                         ),
                       ),
-                      onTap: () {
+                      onTap: () async {
                         if (verificationId != null) {
-                          auth.firebaseAuth.signInWithPhoneNumber(phoneNumber);
+                          final credential =
+                              PhoneAuthProvider.credential(verificationId: verificationId!, smsCode: controller.text);
+                          await auth.firebaseAuth.signInWithCredential(credential);
+                          context.go("/");
                         }
                       },
                     )
