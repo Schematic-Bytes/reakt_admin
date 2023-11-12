@@ -67,12 +67,10 @@ This app relies on a backend  on firebase.
 
 Our Emergency response app provides a lot of features like
 
- -   Location
- - Name
- - Email
- - Mobile Number
- - Address
- - Medical Records
+- Receive all user data and view it in  intuitive interface
+- Maps for navigating to the source signal location
+- Hear the user's auido regarding the SOS signal
+ 
   
 - *User-Friendly Interface:* The application is designed with a user-friendly interface for ease of use.
 
