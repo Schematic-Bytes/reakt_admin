@@ -1,5 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'package:reakt_admin/routes/widget/alert_message.dart';
 
 class HomeRoute extends StatelessWidget {
@@ -7,6 +9,8 @@ class HomeRoute extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final database = context.read<FirebaseFirestore>();
+
     return SafeArea(
       child: Scaffold(
         body: Center(
@@ -33,10 +37,19 @@ class HomeRoute extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 20),
-                    const AlertMessage(),
-                    const AlertMessage(),
-                    const AlertMessage(),
-                    const AlertMessage(),
+                    StreamBuilder<List<Map<String, dynamic>>>(
+                      stream:
+                          database.collection("requests").snapshots().map((x) => x.docs.map((y) => y.data()).toList()),
+                      initialData: const [],
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          return Column(children: [...snapshot.data!.map((x) => AlertMessage(data: x))]);
+                        }
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      },
+                    ),
                   ],
                 ),
               ),

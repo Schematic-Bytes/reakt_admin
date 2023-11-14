@@ -43,6 +43,9 @@ dependencies:
   provider: ^6.1.1
   firebase_core: ^2.22.0
   fluttertoast: ^8.2.4
+  url_launcher: ^6.2.1
+  webview_flutter: ^4.4.2
+  intl: ^0.18.1
 
 dev_dependencies:
   flutter_test:
