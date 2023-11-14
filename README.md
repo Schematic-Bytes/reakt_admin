@@ -13,7 +13,7 @@
     </b>
   </h3>
   <b>
-    Safety Just A Tap Away
+    With great power comes great responsibility.
   </b>
 <br>
 	
