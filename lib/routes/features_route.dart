@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:reakt_admin/routes/home_route.dart';
 
 class Features extends StatefulWidget {
   const Features({super.key});
@@ -96,9 +96,7 @@ class _FeaturesState extends State<Features> {
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50),
-                      color: featuresIndex == 0
-                          ? const Color(0xFF06080A)
-                          : const Color(0xFFB9B9B9),
+                      color: featuresIndex == 0 ? const Color(0xFF06080A) : const Color(0xFFB9B9B9),
                     ),
                     width: 10,
                     height: 10,
@@ -107,9 +105,7 @@ class _FeaturesState extends State<Features> {
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50),
-                      color: featuresIndex == 1
-                          ? const Color(0xFF06080A)
-                          : const Color(0xFFB9B9B9),
+                      color: featuresIndex == 1 ? const Color(0xFF06080A) : const Color(0xFFB9B9B9),
                     ),
                     width: 10,
                     height: 10,
@@ -118,9 +114,7 @@ class _FeaturesState extends State<Features> {
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50),
-                      color: featuresIndex == 2
-                          ? const Color(0xFF06080A)
-                          : const Color(0xFFB9B9B9),
+                      color: featuresIndex == 2 ? const Color(0xFF06080A) : const Color(0xFFB9B9B9),
                     ),
                     width: 10,
                     height: 10,
@@ -130,12 +124,7 @@ class _FeaturesState extends State<Features> {
               const Spacer(),
               InkWell(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: ((context) => const HomeRoute()),
-                    ),
-                  );
+                  context.go("/login");
                 },
                 child: Container(
                   padding: const EdgeInsets.all(16),

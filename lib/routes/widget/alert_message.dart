@@ -70,7 +70,7 @@ class AlertMessage extends StatelessWidget {
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                "8989393839",
+                data['phone'],
                 style: GoogleFonts.inter(
                   fontSize: 17,
                   fontWeight: FontWeight.w400,

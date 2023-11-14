@@ -1,6 +1,8 @@
 import 'package:go_router/go_router.dart';
 import 'package:reakt_admin/routes/authentication_route.dart';
+import 'package:reakt_admin/routes/features_route.dart';
 import 'package:reakt_admin/routes/home_route.dart';
+import 'package:reakt_admin/routes/intro_route.dart';
 import 'package:reakt_admin/routes/login_route.dart';
 import 'package:reakt_admin/routes/otp_route.dart';
 
@@ -10,6 +12,16 @@ final appRouter = GoRouter(
       path: "/",
       builder: (context, state) => const AuthRouter(),
       redirect: AuthRouter.redirect,
+    ),
+    GoRoute(
+      path: "/intro",
+      builder: (context, state) => const IntroRoute(),
+      routes: <RouteBase>[
+        GoRoute(
+          path: "features",
+          builder: (context, state) => const Features(),
+        )
+      ],
     ),
     GoRoute(
       path: '/login',

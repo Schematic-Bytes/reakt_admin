@@ -90,12 +90,11 @@ class _LoginRouteState extends State<LoginRoute> {
                     ),
                   ),
                   onTap: () {
-                    if (controller.text == "") {
-                      Fluttertoast.showToast(msg: "Enter password", gravity: ToastGravity.BOTTOM);
+                    if (controller.text.length < 10) {
+                      Fluttertoast.showToast(msg: "Phone number is too short.", gravity: ToastGravity.BOTTOM);
                     } else {
-                      Fluttertoast.showToast(msg: "Password is too short", gravity: ToastGravity.BOTTOM);
+                      context.go("/login/verification?phone_number=${controller.text}");
                     }
-                    context.go("/login/verification?phone_number=${controller.text}");
                   },
                 )
               ],

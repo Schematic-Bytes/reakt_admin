@@ -1,6 +1,6 @@
-import 'package:reakt_admin/routes/features_route.dart';
 // import 'package:reakt/widgets/permission.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class IntroRoute extends StatelessWidget {
@@ -17,16 +17,16 @@ class IntroRoute extends StatelessWidget {
               const SizedBox(height: 10),
               Image.asset("assets/images/intro-img.png"),
               Text(
-                "Welcome to Reakt",
+                "Welcome to Reakt Admin",
                 style: GoogleFonts.inter(
-                  fontSize: 36,
+                  fontSize: 27,
                   fontWeight: FontWeight.w700,
                   color: const Color(0xFF0A0606),
                 ),
               ),
               RichText(
                 text: TextSpan(
-                  text: "Safety is just a ",
+                  text: "With great power comes ",
                   style: GoogleFonts.inter(
                     fontSize: 17,
                     fontWeight: FontWeight.w400,
@@ -34,21 +34,17 @@ class IntroRoute extends StatelessWidget {
                   ),
                   children: [
                     TextSpan(
-                      text: "Tap",
-                      style: GoogleFonts.inter(
-                          fontSize: 17, fontWeight: FontWeight.w800),
+                      text: "great",
+                      style: GoogleFonts.inter(fontSize: 17, fontWeight: FontWeight.w800),
                     ),
-                    const TextSpan(text: " away."),
+                    const TextSpan(text: " responsibility."),
                   ],
                 ),
               ),
               const Spacer(),
               InkWell(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const Features()),
-                  );
+                  context.go("/intro/features/");
                 },
                 child: Container(
                   padding: const EdgeInsets.all(16),

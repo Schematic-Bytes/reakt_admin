@@ -17,7 +17,7 @@ class AuthRouter extends StatelessWidget {
     if (auth.currentUser != null) {
       return "/dashboard";
     } else {
-      return "/login";
+      return "/intro";
     }
   }
 }
